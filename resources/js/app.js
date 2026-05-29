@@ -11,8 +11,13 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+if (sidebarBtn && sidebar) {
+  sidebarBtn.addEventListener("click", function () {
+    elementToggleFunc(sidebar);
+    const expanded = sidebar.classList.contains("active");
+    sidebarBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
+  });
+}
 
 
 
@@ -22,36 +27,29 @@ const modalContainer = document.querySelector("[data-modal-container]");
 const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
 
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
+if (testimonialsItem.length && modalContainer) {
+  const modalImg = document.querySelector("[data-modal-img]");
+  const modalTitle = document.querySelector("[data-modal-title]");
+  const modalText = document.querySelector("[data-modal-text]");
 
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
+  const testimonialsModalFunc = function () {
+    modalContainer.classList.toggle("active");
+    overlay.classList.toggle("active");
+  };
+
+  for (let i = 0; i < testimonialsItem.length; i++) {
+    testimonialsItem[i].addEventListener("click", function () {
+      modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+      modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+      modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
+      modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+      testimonialsModalFunc();
+    });
+  }
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+  if (overlay) overlay.addEventListener("click", testimonialsModalFunc);
 }
-
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
 
 
 
@@ -61,31 +59,14 @@ const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    if (selectedValue === "همه") selectedValue = "all";
-    else if (selectedValue === "طراحی وب") selectedValue = "web design";
-    else if (selectedValue === "اپلیکیشن") selectedValue = "applications";
-    else if (selectedValue === "توسعه وب") selectedValue = "web development";
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
+if (select) {
+  select.addEventListener("click", function () { elementToggleFunc(this); });
 }
 
-// filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
 const filterFunc = function (selectedValue) {
-
   for (let i = 0; i < filterItems.length; i++) {
-
     if (selectedValue === "all") {
       filterItems[i].classList.add("active");
     } else if (selectedValue === filterItems[i].dataset.category) {
@@ -93,32 +74,41 @@ const filterFunc = function (selectedValue) {
     } else {
       filterItems[i].classList.remove("active");
     }
-
   }
+};
 
+if (selectItems.length) {
+  for (let i = 0; i < selectItems.length; i++) {
+    selectItems[i].addEventListener("click", function () {
+      let selectedValue = this.innerText.toLowerCase();
+      if (selectedValue === "همه") selectedValue = "all";
+      else if (selectedValue === "طراحی وب") selectedValue = "web design";
+      else if (selectedValue === "اپلیکیشن") selectedValue = "applications";
+      else if (selectedValue === "توسعه وب") selectedValue = "web development";
+      if (selectValue) selectValue.innerText = this.innerText;
+      elementToggleFunc(select);
+      filterFunc(selectedValue);
+    });
+  }
 }
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+if (filterBtn.length) {
+  let lastClickedBtn = filterBtn[0];
 
-for (let i = 0; i < filterBtn.length; i++) {
-
-  filterBtn[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    if (selectedValue === "همه") selectedValue = "all";
-    else if (selectedValue === "طراحی وب") selectedValue = "web design";
-    else if (selectedValue === "اپلیکیشن") selectedValue = "applications";
-    else if (selectedValue === "توسعه وب") selectedValue = "web development";
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
-  });
-
+  for (let i = 0; i < filterBtn.length; i++) {
+    filterBtn[i].addEventListener("click", function () {
+      let selectedValue = this.innerText.toLowerCase();
+      if (selectedValue === "همه") selectedValue = "all";
+      else if (selectedValue === "طراحی وب") selectedValue = "web design";
+      else if (selectedValue === "اپلیکیشن") selectedValue = "applications";
+      else if (selectedValue === "توسعه وب") selectedValue = "web development";
+      if (selectValue) selectValue.innerText = this.innerText;
+      filterFunc(selectedValue);
+      lastClickedBtn.classList.remove("active");
+      this.classList.add("active");
+      lastClickedBtn = this;
+    });
+  }
 }
 
 
@@ -128,48 +118,71 @@ const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
-  });
+if (form && formBtn) {
+  for (let i = 0; i < formInputs.length; i++) {
+    formInputs[i].addEventListener("input", function () {
+      if (form.checkValidity()) {
+        formBtn.removeAttribute("disabled");
+      } else {
+        formBtn.setAttribute("disabled", "");
+      }
+    });
+  }
 }
 
 
 
-// page navigation variables
+// page navigation
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
+const navTargets = document.querySelectorAll("[data-nav-target]");
 const pages = document.querySelectorAll("[data-page]");
 
-// add event to all nav link
+const navigateToPage = function (targetPage) {
+  if (!targetPage) return;
+
+  for (let i = 0; i < pages.length; i++) {
+    const isActive = pages[i].dataset.page === targetPage;
+    pages[i].classList.toggle("active", isActive);
+  }
+
+  for (let i = 0; i < navigationLinks.length; i++) {
+    const linkTarget = navigationLinks[i].dataset.navTarget || navigationLinks[i].innerHTML.trim();
+    const isActive = linkTarget === targetPage;
+    navigationLinks[i].classList.toggle("active", isActive);
+    if (isActive) {
+      navigationLinks[i].setAttribute("aria-current", "page");
+    } else {
+      navigationLinks[i].removeAttribute("aria-current");
+    }
+  }
+
+  window.scrollTo(0, 0);
+
+  if (sidebar && sidebar.classList.contains("active") && sidebarBtn) {
+    sidebar.classList.remove("active");
+    sidebarBtn.setAttribute("aria-expanded", "false");
+  }
+};
+
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    navigateToPage(this.dataset.navTarget || this.innerHTML.trim());
+  });
+}
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.trim() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
+for (let i = 0; i < navTargets.length; i++) {
+  if (navTargets[i].hasAttribute("data-nav-link")) continue;
 
+  navTargets[i].addEventListener("click", function (e) {
+    if (this.tagName === "A" && this.getAttribute("href")?.startsWith("http")) return;
+    e.preventDefault();
+    navigateToPage(this.dataset.navTarget);
   });
 }
 
 
-// ----------------------------
+
 // Background audio + toggle
-// ----------------------------
 const bgAudio = document.getElementById('bg-audio');
 const audioToggleBtn = document.getElementById('audio-toggle');
 
@@ -189,12 +202,10 @@ if (bgAudio && audioToggleBtn) {
     }
   };
 
-  // try autoplay (may be blocked by browser)
   bgAudio.play().then(() => {
     bgAudio.muted = false;
     updateAudioIcon();
   }).catch(() => {
-    // autoplay blocked — show hint
     audioToggleBtn.classList.add('requires-interaction');
     audioToggleBtn.title = 'برای پخش، کلیک کنید';
     updateAudioIcon();
