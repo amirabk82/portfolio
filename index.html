@@ -312,6 +312,10 @@
           </li>
 
           <li class="navbar-item">
+            <button class="navbar-link" data-nav-link data-nav-target="بلاگ">بلاگ</button>
+          </li>
+
+          <li class="navbar-item">
             <button class="navbar-link" data-nav-link data-nav-target="تماس با من">تماس با من</button>
           </li>
 
@@ -343,7 +347,7 @@
               من <strong>امیرحسین آب خون</strong> هستم؛ <strong>طراح سایت</strong> و <strong>برنامه‌نویس وب</strong> با تمرکز بر ساخت وب‌سایت‌های مدرن، سریع و ریسپانسیو. از طراحی سایت شخصی و شرکتی تا سئو اولیه و پشتیبانی — همراه کسب‌وکارهای ایرانی در مسیر حضور آنلاین حرفه‌ای.
             </p>
             <div class="cta-group" role="group" aria-label="دکمه‌های اقدام">
-              <button class="cta-btn cta-btn-primary" data-nav-target="تماس با من">
+              <button class="cta-btn cta-btn-primary" data-nav-target="تماس ��ا من">
                 <ion-icon name="rocket-outline" aria-hidden="true"></ion-icon>
                 <span>شروع همکاری</span>
               </button>
@@ -1243,190 +1247,92 @@
         - #BLOG
       -->
 
-      <!-- <article class="blog" data-page="بلاگ">
+      <article class="blog" data-page="بلاگ" id="blog">
 
         <header>
-          <h2 class="h2 article-title">بلاگ</h2>
+          <h2 class="article-title">
+            <span class="title-part">بلاگ</span><span class="title-part title-part--sub">Blog</span>
+          </h2>
         </header>
 
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./resources/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">طراحی</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">۴ اسفند ۱۴۰۰</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">کنفرانس‌های طراحی در ۱۴۰۱</h3>
-
-                  <p class="blog-text">
-                    بررسی رویدادهای مهم طراحی و کنفرانس‌های سال جدید در حوزه طراحی وب و گرافیک.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./resources/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">بهترین فونت‌ها برای هر طراح</h3>
-
-                  <p class="blog-text">
-                    معرفی فونت‌های برتر و پرکاربرد در طراحی وب و گرافیک برای استفاده در پروژه‌های مختلف.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./resources/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">خلاصه طراحی شماره ۸۰</h3>
-
-                  <p class="blog-text">
-                    مرور آخرین روندها و اخبار دنیای طراحی در هفته گذشته و معرفی پروژه‌های برتر.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./resources/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">تعاملات رابط کاربری هفته</h3>
-
-                  <p class="blog-text">
-                    بررسی بهترین نمونه‌های تعاملات کاربری و انیمیشن‌های خلاقانه در طراحی رابط کاربری.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./resources/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">هنر فراموش شده فاصله‌گذاری</h3>
-
-                  <p class="blog-text">
-                    اهمیت فاصله‌گذاری در طراحی و نحوه استفاده صحیح از فضای خالی در پروژه‌ها.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./resources/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">خلاصه طراحی شماره ۷۹</h3>
-
-                  <p class="blog-text">
-                    مرور آخرین روندها و اخبار دنیای طراحی و معرفی پروژه‌های خلاقانه و الهام‌بخش.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
+        <section class="blog-hero" aria-labelledby="blog-hero-heading">
+          <p class="hero-badge">مقالات تخصصی توسعه وب</p>
+          <h3 id="blog-hero-heading" class="blog-hero-title">یادداشت‌هایی درباره وب مدرن</h3>
+          <p class="blog-hero-text">
+            تجربه‌ها و آموزش‌هایی درباره <strong>توسعه وب</strong>، <strong>بهینه‌سازی عملکرد</strong>، <strong>سئو</strong> و
+            <strong>تکنولوژی‌های مدرن</strong> — نوشته‌شده برای توسعه‌دهندگان و صاحبان کسب‌وکارهایی که می‌خواهند سریع‌تر و حرفه‌ای‌تر در وب حضور داشته باشند.
+          </p>
         </section>
 
-      </article> -->
+        <section class="blog-controls" aria-label="جستجو و فیلتر مقالات">
+          <div class="blog-search">
+            <ion-icon name="search-outline" class="blog-search-icon" aria-hidden="true"></ion-icon>
+            <label for="blog-search-input" class="sr-only">جستجوی مقالات</label>
+            <input
+              type="search"
+              id="blog-search-input"
+              class="blog-search-input"
+              placeholder="جستجو در مقالات…"
+              data-blog-search
+              autocomplete="off"
+            >
+          </div>
 
+          <div class="blog-filters" role="group" aria-label="فیلتر دسته‌بندی">
+            <button class="filter-chip active" data-blog-filter data-category="all">همه</button>
+            <button class="filter-chip" data-blog-filter data-category="web-development">توسعه وب</button>
+            <button class="filter-chip" data-blog-filter data-category="performance">عملکرد</button>
+            <button class="filter-chip" data-blog-filter data-category="seo">سئو</button>
+            <button class="filter-chip" data-blog-filter data-category="modern-web">وب مدرن</button>
+          </div>
+        </section>
+
+        <section class="blog-featured" aria-label="مقاله ویژه" data-blog-featured></section>
+
+        <section class="blog-list-section" aria-label="فهرست مقالات">
+          <div class="post-grid" data-blog-grid></div>
+
+          <p class="blog-empty" data-blog-empty hidden>
+            <ion-icon name="file-tray-outline" aria-hidden="true"></ion-icon>
+            مقاله‌ای مطابق جستجوی شما پیدا نشد.
+          </p>
+
+          <div class="cta-group cta-group-center">
+            <button class="cta-btn cta-btn-secondary" data-blog-load-more hidden>
+              <ion-icon name="reload-outline" aria-hidden="true"></ion-icon>
+              <span>نمایش مقالات بیشتر</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="newsletter" aria-labelledby="newsletter-heading">
+          <div class="newsletter-icon" aria-hidden="true">
+            <ion-icon name="mail-open-outline"></ion-icon>
+          </div>
+          <h3 id="newsletter-heading" class="newsletter-title">خبرنامه را از دست ندهید</h3>
+          <p class="newsletter-text">
+            هر بار که مقاله تازه‌ای درباره توسعه وب و عملکرد منتشر شود، اولین نفری باشید که باخبر می‌شوید.
+          </p>
+          <form class="newsletter-form" data-newsletter-form novalidate>
+            <label for="newsletter-email" class="sr-only">ایمیل شما</label>
+            <input
+              type="email"
+              id="newsletter-email"
+              class="newsletter-input"
+              placeholder="ایمیل شما"
+              required
+              autocomplete="email"
+              data-newsletter-input
+            >
+            <button type="submit" class="cta-btn cta-btn-primary newsletter-btn">
+              <ion-icon name="paper-plane-outline" aria-hidden="true"></ion-icon>
+              <span>عضویت</span>
+            </button>
+          </form>
+          <p class="newsletter-feedback" data-newsletter-feedback role="status" aria-live="polite" hidden></p>
+        </section>
+
+      </article>
 
 
 
@@ -1546,6 +1452,7 @@
 
   <audio id="bg-audio" src="./resources/audio/your-song.mp3" preload="none" loop></audio>
 
+  <script src="./resources/js/blog.js" defer></script>
   <script src="./resources/js/app.js" defer></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" defer></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" defer></script>
