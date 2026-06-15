@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amirabkhoun.ir/sitemap.xml
+Sitemap: https://abkhoun.ir/sitemap.xml
